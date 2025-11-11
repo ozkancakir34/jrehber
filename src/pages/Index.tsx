@@ -4,9 +4,10 @@ import { ContactCard } from "@/components/ContactCard";
 import { ContactForm } from "@/components/ContactForm";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Plus, Search, Users } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import { initialContacts } from "@/data/initialContacts";
 import { toast } from "@/hooks/use-toast";
+import logo from "@/assets/logo.png";
 
 const Index = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
@@ -34,14 +35,14 @@ const Index = () => {
       const updated = contacts.map((c) => (c.id === contact.id ? contact : c));
       saveContacts(updated);
       toast({
-        title: "Başarılı",
-        description: "Kişi güncellendi",
+        title: "Success",
+        description: "Contact updated",
       });
     } else {
       saveContacts([...contacts, contact]);
       toast({
-        title: "Başarılı",
-        description: "Yeni kişi eklendi",
+        title: "Success",
+        description: "New contact added",
       });
     }
     setEditingContact(undefined);
@@ -53,11 +54,11 @@ const Index = () => {
   };
 
   const handleDeleteContact = (id: string) => {
-    if (confirm("Bu kişiyi silmek istediğinizden emin misiniz?")) {
+    if (confirm("Are you sure you want to delete this contact?")) {
       saveContacts(contacts.filter((c) => c.id !== id));
       toast({
-        title: "Başarılı",
-        description: "Kişi silindi",
+        title: "Success",
+        description: "Contact deleted",
       });
     }
   };
@@ -76,12 +77,10 @@ const Index = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-3 bg-primary/10 rounded-lg">
-              <Users className="w-8 h-8 text-primary" />
-            </div>
+            <img src={logo} alt="DEF Media Logo" className="h-16 w-auto object-contain" />
             <div>
-              <h1 className="text-4xl font-bold text-foreground">Kişiler</h1>
-              <p className="text-muted-foreground">Production Team İletişim Listesi</p>
+              <h1 className="text-4xl font-bold text-foreground">Contacts</h1>
+              <p className="text-muted-foreground">Production Team Contact List</p>
             </div>
           </div>
         </div>
@@ -92,7 +91,7 @@ const Index = () => {
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <Input
               type="text"
-              placeholder="İsim, rol, telefon veya şirket ile ara..."
+              placeholder="Search by name, role, phone or company..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10"
@@ -106,15 +105,15 @@ const Index = () => {
             className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
           >
             <Plus className="w-5 h-5" />
-            Yeni Kişi Ekle
+            Add New Contact
           </Button>
         </div>
 
         {/* Stats */}
         <div className="mb-6 p-4 bg-card rounded-lg border">
           <p className="text-sm text-muted-foreground">
-            Toplam <span className="font-semibold text-foreground">{filteredContacts.length}</span> kişi gösteriliyor
-            {searchQuery && ` (${contacts.length} kişiden)`}
+            Showing <span className="font-semibold text-foreground">{filteredContacts.length}</span> contacts
+            {searchQuery && ` (out of ${contacts.length})`}
           </p>
         </div>
 
@@ -133,7 +132,7 @@ const Index = () => {
         {filteredContacts.length === 0 && (
           <div className="text-center py-12">
             <p className="text-muted-foreground text-lg">
-              {searchQuery ? "Aramanıza uygun kişi bulunamadı" : "Henüz kişi eklenmemiş"}
+              {searchQuery ? "No contacts found matching your search" : "No contacts added yet"}
             </p>
           </div>
         )}

@@ -54,31 +54,31 @@ export const ContactForm = ({ contact, open, onClose, onSave }: ContactFormProps
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>{contact ? "Kişiyi Düzenle" : "Yeni Kişi Ekle"}</DialogTitle>
+          <DialogTitle>{contact ? "Edit Contact" : "Add New Contact"}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">İsim *</Label>
+            <Label htmlFor="name">Name *</Label>
             <Input
               id="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              placeholder="Ahmet Yılmaz"
+              placeholder="John Doe"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="role">Rol *</Label>
+            <Label htmlFor="role">Role *</Label>
             <Input
               id="role"
               value={formData.role}
               onChange={(e) => setFormData({ ...formData, role: e.target.value })}
               required
-              placeholder="Proje Yöneticisi"
+              placeholder="Project Manager"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phone">Telefon *</Label>
+            <Label htmlFor="phone">Phone *</Label>
             <Input
               id="phone"
               value={formData.phone}
@@ -88,30 +88,30 @@ export const ContactForm = ({ contact, open, onClose, onSave }: ContactFormProps
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="company">Şirket</Label>
+            <Label htmlFor="company">Company</Label>
             <Input
               id="company"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              placeholder="ABC Şirketi"
+              placeholder="ABC Company"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">E-posta</Label>
+            <Label htmlFor="email">Email</Label>
             <Input
               id="email"
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="ahmet@example.com"
+              placeholder="john@example.com"
             />
           </div>
           <DialogFooter>
             <Button type="button" variant="outline" onClick={onClose}>
-              İptal
+              Cancel
             </Button>
             <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary/90">
-              {contact ? "Güncelle" : "Ekle"}
+              {contact ? "Update" : "Add"}
             </Button>
           </DialogFooter>
         </form>
