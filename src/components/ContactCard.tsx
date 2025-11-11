@@ -11,9 +11,12 @@ interface ContactCardProps {
 
 export const ContactCard = ({ contact, onEdit, onDelete }: ContactCardProps) => {
   const handleWhatsAppClick = () => {
-    if (contact.phone) {
-      const cleanPhone = contact.phone.replace(/\s+/g, "");
-      window.open(`https://wa.me/${cleanPhone}`, "_blank");
+    if (contact.phone && contact.phone.trim()) {
+      // Telefon numarasından tüm boşlukları, tireleri ve özel karakterleri temizle, sadece + ve rakamları bırak
+      const cleanPhone = contact.phone.replace(/[^\d+]/g, "");
+      const whatsappUrl = `https://wa.me/${cleanPhone}`;
+      console.log("WhatsApp URL:", whatsappUrl); // Debug için
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -57,7 +60,7 @@ export const ContactCard = ({ contact, onEdit, onDelete }: ContactCardProps) => 
           </div>
         </div>
         
-        {contact.phone && (
+        {contact.phone && contact.phone.trim() && (
           <Button
             onClick={handleWhatsAppClick}
             className="w-full bg-whatsapp hover:bg-whatsapp-hover text-white gap-2"

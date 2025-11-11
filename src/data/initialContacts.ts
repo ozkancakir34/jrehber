@@ -1,7 +1,6 @@
 import { Contact } from "@/types/contact";
 
 export const initialContacts: Contact[] = [
-  // Production Team
   { id: "1", name: "Natia Mshvenieradze", role: "Executive Producer", phone: "+995577171748", company: "GPB", email: "n.mshvenieradze@1tv.ge" },
   { id: "2", name: "Lasha Kapanadze", role: "Head of Event", phone: "+995577139084", company: "GPB", email: "l.kapanadze@1tv.ge" },
   { id: "3", name: "Elene Kolelishvili", role: "Head of Production", phone: "+995599038222", company: "GPB", email: "kolelishvilielene@gmail.com" },
@@ -11,26 +10,39 @@ export const initialContacts: Contact[] = [
   { id: "7", name: "Özkan Çakır", role: "Technical Coordinator", phone: "+905301495509", company: "DEF Media", email: "ozkan.cakir@defmedia.tv" },
   { id: "8", name: "Aleksandar Zdravkov", role: "Technical Supervisor", phone: "+359889220190", company: "ProCinema", email: "alex_zdravkov@pro-cinema.com" },
   { id: "9", name: "Dilara Filiz", role: "Production Coordinator", phone: "+905555829117", company: "DEF Media", email: "dilara.filiz@defmedia.tv" },
-  
-  // Contest Team
   { id: "10", name: "Marvin Dietmann", role: "Show Director", phone: "+436643325460", company: "Dietmann Productions", email: "marvin@dietmann.pro" },
   { id: "11", name: "Edd Hall", role: "Stage Director / Creative Assistant", phone: "+34696394370", company: "Edd Hall Professional", email: "eddhallprofessional@icloud.com" },
   { id: "12", name: "Marie-Sophie Kreissl", role: "Stage Director", phone: "+436643691966", company: "Dietmann Productions", email: "marie-sophie@dietmann.pro" },
   { id: "13", name: "Selly Meier", role: "Assistant to Head of Show", phone: "+41766802270", company: "Dietmann Productions", email: "selly@dietmann.pro" },
-  
-  // Lighting Department
   { id: "14", name: "Raphaël Demonthy", role: "Lighting and Stage Designer", phone: "+4915155771849", company: "Sunrise Studios GmbH", email: "rd@sunrisestudios.de" },
   { id: "15", name: "Tobias Heydthausen", role: "LD Assistant, Keylight Operator", phone: "+4916097093933", company: "Sunrise Studios GmbH", email: "th@sunrisestudios.de" },
   { id: "16", name: "Fabian Schnmidt", role: "LD Assistant, Showlight Operator", phone: "+4915114033292", company: "Sunrise Studios GmbH", email: "fschmidt@flashing-beats.de" },
   { id: "17", name: "Marcel Knauf", role: "LD Assist/CAD Manager", phone: "+491756195833", company: "Sunrise Studios GmbH", email: "mk@sunrisestudios.de" },
   { id: "18", name: "Kalin Popov", role: "Head of Light", phone: "+359890126472", company: "ESC Rental", email: "kalinp93@gmail.com" },
   { id: "19", name: "Natalie Hadad", role: "Rental Manager", phone: "+359888306662", company: "ESC Rental", email: "esc_office@thcaudio.com" },
-  
-  // Audio Department
   { id: "20", name: "Wojciech Łopaciuk", role: "Sound Director", phone: "+48601314210", company: "KOAD", email: "wojciech.lopaciuk@koad.pl" },
-  
-  // LED / VIDEO content Team
   { id: "21", name: "Sebastian Huwig", role: "Head of Video", phone: "", company: "Trust Event", email: "s.huwig@trust-event.com" },
   { id: "22", name: "Chris van Deenen", role: "Medien Server Operator", phone: "", company: "Trust Rental", email: "Cvd@trust-rental.com" },
   { id: "23", name: "Raduen Ben Rhayem", role: "LED Wall Technician", phone: "+359884447894", company: "ESC Rental", email: "radi1708@gmail.com" },
+  { id: "24", name: "Natalie Zittlau", role: "Head of Content", phone: "", company: "Trust Event", email: "n.zittlau@trust-event.com" },
+  { id: "25", name: "Marek Miil", role: "Multicam Director", phone: "+3725184644", company: "HB", email: "marek@box.ee" },
+  { id: "26", name: "Elena Miloradova", role: "Opertec Project Manager", phone: "+380956736363", company: "OperTec", email: "dir@opertec.tv" },
+  { id: "27", name: "Aleks Parfeniuk", role: "Opertec Technical Supervisor", phone: "+380672474841", company: "OperTec", email: "sash@opertec.tv" },
+  { id: "28", name: "Ellise Siidirätsep", role: "Script Assistant", phone: "", company: "", email: "eliisesiidiratsep@gmail.com" },
+  { id: "29", name: "Vladlen Pobjarzin", role: "Vision Mixer", phone: "", company: "", email: "v.pobjarzin@gmail.com" },
+  { id: "30", name: "Vladislav Zhelev", role: "Rigging", phone: "+359889229025", company: "ESC Rental", email: "vladislavgzhelev@gmail.com" },
+  { id: "31", name: "Mariusz Nowak", role: "OB Van Audio ENG", phone: "+48691968234", company: "ATM System", email: "mariusz.nowak@atmgrupa.pl" },
+  { id: "32", name: "Aleksandra Kmiotek", role: "ATM System", phone: "+48693230828", company: "ATM System", email: "akmiotek@atmgrupa.pl" },
+  { id: "33", name: "Eryk Hoyenski", role: "Comms", phone: "+48786218305", company: "ATM System", email: "eryk.hoyenski@atmgrupa.pl" },
+  { id: "34", name: "Arkadiusz Grzanko", role: "ATM System", phone: "+48601705087", company: "ATM System", email: "arkadiusz.grzanko@atmgrupa.pl" },
+  { id: "35", name: "Maciej Walesiak", role: "OB Van Manager", phone: "+48693230605", company: "ATM System", email: "maciej.walesiak@atmgrupa.pl" },
+  { id: "36", name: "Gert Kark", role: "EBU", phone: "+41792518776", company: "EBU", email: "kark@ebu.ch" },
+  { id: "37", name: "Michael Lowther", role: "EBU", phone: "+447834268552", company: "EBU", email: "lowther@ebu.ch" },
+  { id: "38", name: "Anders Lenhoff", role: "End of Show Producer", phone: "", company: "", email: "anders@innehallsbolaget.se" },
+  { id: "39", name: "Leonie Funke", role: "Head Floor Manager", phone: "", company: "", email: "fernsehfunke@gmail.com" },
+  { id: "40", name: "Shako Popiashvili", role: "Prop Manager", phone: "+995577179007", company: "", email: "shako.popiashvili@gmail.com" },
+  { id: "41", name: "Nino Zaridze", role: "Prop Manager assistant", phone: "+995551700301", company: "", email: "zazagu@gmail.com" },
+  { id: "42", name: "Kabir Naidoo", role: "Delegation Bubble Manager", phone: "", company: "", email: "kabirnaidoo@gmail.com" },
+  { id: "43", name: "Vivien Anglesio", role: "Senior GFX Playout Manager", phone: "", company: "", email: "vivien@cliclic.tv" },
+  { id: "44", name: "Julian Gutierrez", role: "Viewing Room Director / LiveEdit Supplier", phone: "", company: "LiveEdit", email: "julian@liveedit.app" },
 ];
