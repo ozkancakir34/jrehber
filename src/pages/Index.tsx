@@ -13,6 +13,7 @@ const Index = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedCompany, setSelectedCompany] = useState<string | null>(null);
   const [editingContact, setEditingContact] = useState<Contact | undefined>();
 
   useEffect(() => {
@@ -63,13 +64,23 @@ const Index = () => {
     }
   };
 
-  const filteredContacts = contacts.filter(
-    (contact) =>
+  const companyOptions = Array.from(
+    new Set(
+      contacts
+        .map((c) => (c.company || "").trim())
+        .filter((v) => v.length > 0)
+    )
+  ).sort((a, b) => a.localeCompare(b));
+
+  const filteredContacts = contacts.filter((contact) => {
+    const matchesSearch =
       contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       contact.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
       contact.phone.includes(searchQuery) ||
-      (contact.company && contact.company.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
+      (contact.company && contact.company.toLowerCase().includes(searchQuery.toLowerCase()));
+    const matchesCompany = !selectedCompany || (contact.company && contact.company === selectedCompany);
+    return matchesSearch && matchesCompany;
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,13 +91,13 @@ const Index = () => {
             <img src={logo} alt="DEF Media Logo" className="h-16 w-auto object-contain" />
             <div>
               <h1 className="text-4xl font-bold text-foreground">Contacts</h1>
-              <p className="text-muted-foreground">Production Team Contact List</p>
+              <p className="text-muted-foreground">All Contacts</p>
             </div>
           </div>
         </div>
 
         {/* Search and Add */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row gap-4 mb-4">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
             <Input
@@ -107,6 +118,28 @@ const Index = () => {
             <Plus className="w-5 h-5" />
             Add New Contact
           </Button>
+        </div>
+        <div className="flex items-center gap-2 mb-8 flex-wrap">
+          {companyOptions.map((company) => (
+            <Button
+              key={company}
+              variant={selectedCompany === company ? "default" : "outline"}
+              size="sm"
+              onClick={() => setSelectedCompany(company)}
+            >
+              {company}
+            </Button>
+          ))}
+          {companyOptions.length > 0 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setSelectedCompany(null)}
+              className="ml-2"
+            >
+              Clear
+            </Button>
+          )}
         </div>
 
         {/* Stats */}
